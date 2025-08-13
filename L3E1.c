@@ -3,29 +3,27 @@
 
 #include <stdio.h>
 
-#include <stdio.h>
-
 int main() {
-    int n, originalNum, reversedNum = 0, remainder;
+    int n, original, reversed = 0, remainder;
 
     printf("Enter an integer: ");
     scanf("%d", &n);
 
-    originalNum = n;
+    original = n;
 
     while (n != 0) {
 
         remainder = n % 10;
-        reversedNum = reversedNum * 10 + remainder;
+        reversed = reversed * 10 + remainder;
         n /= 10;
     }
 
-    printf("Reversed number = %d\n", reversedNum);
+    printf("Reversed number = %d\n", reversed);
 
-    if (originalNum == reversedNum) {
-        printf("%d is a palindrome. 🔄\n", originalNum);
+    if (original == reversed) {
+        printf("%d is a palindrome.\n", original);
     } else {
-        printf("%d is not a palindrome. 🔄\n", originalNum);
+        printf("%d is not a palindrome.\n", original);
     }
 
     return 0;
