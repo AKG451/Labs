@@ -2,7 +2,7 @@
 
 int main() {
     int n;
-    int current_number = 1;
+    int cn = 1;
 
     printf("Enter the number of rows for Floyd's Triangle (N): ");
 
@@ -18,8 +18,8 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= i; j++) {
-            printf("%d ", current_number);
-            current_number++;
+            printf("%d ", cn);
+            cn++;
         }
          printf("\n");
     }
