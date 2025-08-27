@@ -1,74 +1,49 @@
 #include <stdio.h>
 
 int main() {
-    char order_choice;
+    // Variable for the new element and its desired position
     int new_element, position;
 
+    // Initial array and its size
     int array[20] = {64, 34, 25, 12, 22, 11, 90};
     int size = 7;
 
+    // Print the original array
     printf("Original array: ");
     for (int i = 0; i < size; i++) {
         printf("%d ", array[i]);
     }
     printf("\n\n");
 
+    // Get user input for the new element
     printf("Enter the element to insert: ");
     scanf("%d", &new_element);
 
+    // Get user input for the position
     printf("Enter the position (0 to %d) where you want to insert it: ", size);
     scanf("%d", &position);
 
+    // Validate the position
     if (position < 0 || position > size) {
         printf("Invalid position!\n");
-        return 1;
+        return 1; // Exit with an error code
     } else {
+        // Shift elements to the right to make space for the new element
         for (int i = size - 1; i >= position; i--) {
             array[i + 1] = array[i];
         }
 
+        // Insert the new element at the specified position
         array[position] = new_element;
+        // Increment the size of the array
         size++;
 
+        // Print the final array after insertion
         printf("\nArray after inserting %d at position %d:\n", new_element, position);
         for (int i = 0; i < size; i++) {
             printf("%d ", array[i]);
         }
         printf("\n");
-    }
-
-    printf("\nEnter 'a' for ascending order or 'd' for descending order: ");
-    scanf(" %c", &order_choice);
-
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            switch (order_choice) {
-                case 'a':
-                    if (array[j] > array[j + 1]) {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
-                    }
-                    break;
-                case 'd':
-                    if (array[j] < array[j + 1]) {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
-                    }
-                    break;
-            }
-        }
-    }
-
-    if (order_choice == 'a' || order_choice == 'd') {
-        printf("\nThe final sorted array is:\n");
-        for (int i = 0; i < size; i++) {
-            printf("%d ", array[i]);
-        }
-        printf("\n");
-    } else {
-        printf("\nInvalid choice. Please run the program again and enter 'a' or 'd'.\n");
     }
 
     return 0;
