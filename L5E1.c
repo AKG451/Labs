@@ -1,34 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int array_size;
+    int size;
 
     printf("How many numbers do you want to enter? ");
-    scanf("%d", &array_size);
+    scanf("%d", &size);
 
-    if (array_size <= 0) {
+    if (size <= 0) {
         printf("Invalid size. Please enter a positive number.\n");
         return 1;
     }
 
-    int my_array[array_size];
+    int array[size];
 
-    printf("Please enter %d numbers:\n", array_size);
-    for (int i = 0; i < array_size; i++) {
-        scanf("%d", &my_array[i]);
+    printf("Please enter %d numbers:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
     }
 
-    int smallest = my_array[0];
-    int largest = my_array[0];
+    int smallest = array[0];
+    int largest = array[0];
 
-    for (int i = 1; i < array_size; i++) {
+    for (int i = 1; i < size; i++) {
 
-        if (my_array[i] < smallest) {
-            smallest = my_array[i];
+        if (array[i] < smallest) {
+            smallest = array[i];
         }
 
-        if (my_array[i] > largest) {
-            largest = my_array[i];
+        if (array[i] > largest) {
+            largest = array[i];
         }
     }
 
