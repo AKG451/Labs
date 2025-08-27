@@ -3,34 +3,34 @@
 int main() {
     char order_choice;
 
-    int my_array[] = {64, 34, 25, 12, 22, 11, 90};
-    int array_size = sizeof(my_array) / sizeof(my_array[0]);
+    int array[] = {64, 34, 25, 12, 22, 11, 90};
+    int size = sizeof(array) / sizeof(array[0]);
 
     printf("The array is: ");
-    for (int i = 0; i < array_size; i++) {
-        printf("%d ", my_array[i]);
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
     }
     printf("\n");
 
     printf("\nEnter 'a' for ascending order or 'd' for descending order: ");
     scanf(" %c", &order_choice);
 
-    for (int i = 0; i < array_size - 1; i++) {
-        for (int j = 0; j < array_size - i - 1; j++) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
             switch (order_choice) {
                 case 'a':
-                    if (my_array[j] > my_array[j + 1]) {
-                        int temp = my_array[j];
-                        my_array[j] = my_array[j + 1];
-                        my_array[j + 1] = temp;
+                    if (array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
                     }
                     break;
 
                 case 'd':
-                    if (my_array[j] < my_array[j + 1]) {
-                        int temp = my_array[j];
-                        my_array[j] = my_array[j + 1];
-                        my_array[j + 1] = temp;
+                    if (array[j] < array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
                     }
                     break;
             }
@@ -38,8 +38,8 @@ int main() {
     }
     if (order_choice == 'a' || order_choice == 'd') {
         printf("\nThe sorted array is:\n");
-        for (int i = 0; i < array_size; i++) {
-            printf("%d ", my_array[i]);
+        for (int i = 0; i < size; i++) {
+            printf("%d ", array[i]);
         }
         printf("\n");
     } else {
